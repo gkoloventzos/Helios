@@ -1,0 +1,164 @@
+    1  apt-get install git openjdk-7
+    2* apt-get install git 
+    3  apt-get install git openjdk
+    4  apt-get install git openjdk-7-jdk
+    5  apt-get install apache2
+    6  cd /var/www/html/
+    7  git clone https://github.com/googleplus/gplus-quickstart-java.git
+    8  c
+    9  ls
+   10  mv index.html apache.html
+   11  cp -r gplus-quickstart-java/* ./
+   12  ls
+   13  cp client_secrets.json.example client_secrets.json
+   14  vim client_secrets.json
+   15  ls
+   16  mkdir bin
+   17  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   18  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   19  vim client_secrets.json
+   20  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   21  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   22  vim client_secrets.json
+   23  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   24  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   25  ls lib/
+   26  vim src/com/google/plus/samples/quickstart/Signin.java 
+   27  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   28  cd lib/
+   29  wget http://central.maven.org/maven2/com/google/gdata/core/1.47.1/core-1.47.1.jar 
+   30  ls
+   31  mv core-1.47.1.jar gdata-core-1.47.1.jar
+   32  ls
+   33  cd
+   34  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   35  cd /var/www/html/
+   36  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   37  c
+   38  clear
+   39  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   40  ls lib/
+   41  clear
+   42  vim ~/.bashrc 
+   43  source ~/.bashrc
+   44  c
+   45  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   46  cd lib/
+   47  wget http://mirrors.ibiblio.org/pub/mirrors/maven2/milyn/j2ee/1.4/j2ee-1.4.jar ./
+   48  ls
+   49  cd ..
+   50  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   51  c
+   52  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   53  c
+   54  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   55  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   56  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   57  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   58  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   59  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   60  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   61  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   62  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   63  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   64  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   65  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   66  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   67  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   68  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   69  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   70  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   71  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   72  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   73  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   74  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   75  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   76  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   77  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   78  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   79  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   80  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   81  cd lib/
+   82  wget http://apache.arvixe.com//commons/lang/binaries/commons-lang3-3.3.2-bin.tar.gz
+   83  ls
+   84  tar -zxvf commons-lang3-3.3.2-bin.tar.gz 
+   85  ls
+   86  cp commons-lang3-3.3.2/commons-lang3-3.3.2.jar ./
+   87  cd
+   88  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   89  cd -
+   90  cd ..
+   91  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   92  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   93  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   94  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   95  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   96  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   97  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+   98  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+   99  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  100  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  101  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  102  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  103  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  104  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  105  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  106  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  107  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  108  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  109  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  110  c
+  111  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  112  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  113  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  114  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  115  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  116  
+  117  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  118  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  119  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  120  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  121  javac -sourcepath src  -Xlint:deprecation -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  122  c
+  123  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  124  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  125  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  126  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  127  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  128  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  129  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  130  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  131  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  132  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  133  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  134  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  135  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  136  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  137  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  138  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  139  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  140  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  141  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  142  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  143  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  144  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  145  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  146  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  147  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  148  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  149  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  150  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  151  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  152  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  153  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  154  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  155  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  156  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  157  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  158  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  159  javac -sourcepath src -d bin -classpath "lib/*" src/com/google/plus/samples/quickstart/Signin.java
+  160  java -classpath "bin:lib/*" com.google.plus.samples.quickstart.Signin
+  161  cd lib
+  162  wget https://gdata-java-client.googlecode.com/svn/trunk/java/sample/photos/lib/PhotosClient.jar
+  163  history
+  164  history > history.txt
