@@ -72,6 +72,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.net.ssl.HttpsURLConnection;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 /**
  * Simple server to demonstrate how to use Google+ Sign-In and make a request
  * via your own server.
@@ -100,6 +103,8 @@ public class Signin {
    * Creates a client secrets object from the client_secrets.json file.
    */
   private static GoogleClientSecrets clientSecrets;
+
+  static final Logger logger = LogManager.getLogger(Signin.class.getName());
 
   static {
     try {
@@ -448,6 +453,7 @@ public class Signin {
         throws ServletException, IOException {
 
 
+	logger.error("Entering search.");
       response.setContentType("text/html");
       String user = null;
       String query ="";
@@ -478,9 +484,9 @@ public class Signin {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
 
-
+	logger.error("Entering results.");
       response.setContentType("text/html");
-      String user = null;
+      String user = "";
       String tokenData = (String) request.getSession().getAttribute("token");
       String query ="";
       try{
