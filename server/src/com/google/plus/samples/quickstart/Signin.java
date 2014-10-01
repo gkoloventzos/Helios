@@ -79,6 +79,7 @@ import javax.net.ssl.HttpsURLConnection;
  * @author joannasmith@google.com (Joanna Smith)
  * @author vicfryzel@google.com (Vic Fryzel)
  */
+
 public class Signin {
   /*
    * Default HTTP transport to use to make HTTP requests.
@@ -140,6 +141,8 @@ public class Signin {
     servletHandler.addServletWithMapping(PeopleServlet.class, "/people");
     servletHandler.addServletWithMapping(AlbumServlet.class, "/album");
     servletHandler.addServletWithMapping(MainServlet.class, "/");
+    servletHandler.addServletWithMapping(SearchServlet.class, "/search");
+    servletHandler.addServletWithMapping(ResultsServlet.class, "/res");
     server.start();
     server.join();
   }
@@ -249,7 +252,7 @@ public class Signin {
      *
      * @param inputStream the InputStream to be read.
      * @return the content of the InputStream as a ByteArrayOutputStream.
-     * @throws IOException 
+     * @throws IOException
      */
     static void getContent(InputStream inputStream, ByteArrayOutputStream outputStream)
         throws IOException {
@@ -271,7 +274,7 @@ public class Signin {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
       response.setContentType("application/json");
-      
+
       // Only disconnect a connected user.
       String tokenData = (String) request.getSession().getAttribute("token");
       if (tokenData == null) {
@@ -412,13 +415,13 @@ public class Signin {
 					PhotoEntry p = new PhotoEntry(entry1);
 					String sPhotoUrl = p.getMediaContents().get(0).getUrl();
 					int slashIndex = sPhotoUrl.lastIndexOf("/");
-					sPhotoUrl = sPhotoUrl.substring(0, slashIndex) + "/s1600" + sPhotoUrl.substring(slashIndex); 
+					sPhotoUrl = sPhotoUrl.substring(0, slashIndex) + "/s1600" + sPhotoUrl.substring(slashIndex);
 					bla += sPhotoUrl + " ";
 					Process pro = Runtime.getRuntime().exec("wget " + sPhotoUrl + " -nH --cut-dirs=4 -nc -P /home/ubuntu/Users/" + user);
 					page += "<img src=\"" + sPhotoUrl + "\" /><br />\n";
 					stock_list.add(sPhotoUrl);
 			}/* for entries*/
-		
+
 		}
 	Process pro = Runtime.getRuntime().exec("mkdir /home/ubuntu/Users/" + user + "/isolated");
 	page += "</p>\n</body>\n</html>";
@@ -435,7 +438,79 @@ public class Signin {
         response.getWriter().print(GSON.toJson("Google. " +
             e.getMessage() + " bla:" + bla + " tags: " + tags + " comme: " + comments + " url: " + fluck + " allbums:"
 			   + myAlbums + " entries: " + entries + " luck1: " + luck1 + " photos: "+ photos));
-    }	
+    }
+    }
+  }
+
+  public static class SearchServlet extends HttpServlet {
+	@Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+
+      response.setContentType("text/html");
+      String user = null;
+      String query ="";
+      query = (String) request.getAttribute("query");
+      String tokenData = (String) request.getSession().getAttribute("token");
+
+      try {
+        // Create a state token to prevent request forgery.
+        // Store it in the session for later validation.
+        response.getWriter().print(new Scanner(new File("search.html"), "UTF-8")
+            .useDelimiter("\\A").next()
+            .replaceAll("[{]{2}\\s*APPLICATION_NAME\\s*[}]{2}",
+                APPLICATION_NAME)
+            .toString());
+        response.setStatus(HttpServletResponse.SC_OK);
+      } catch (FileNotFoundException e) {
+        // When running the quickstart, there was some path issue in finding
+        // index.html.  Double check the quickstart guide.
+        e.printStackTrace();
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        response.getWriter().print(e.toString());
+      }
+    }
+  }
+
+  static class ResultsServlet extends HttpServlet {
+        @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+
+      response.setContentType("text/html");
+      String user = null;
+      String tokenData = (String) request.getSession().getAttribute("token");
+      String query ="";
+      try{
+      query = request.getParameter("query");
+
+      if (query != null){
+        // Build credential from stored token data.
+        GoogleCredential credential = new GoogleCredential.Builder()
+            .setJsonFactory(JSON_FACTORY)
+            .setTransport(TRANSPORT)
+            .setClientSecrets(CLIENT_ID, CLIENT_SECRET).build()
+            .setFromTokenResponse(JSON_FACTORY.fromString(
+                tokenData, GoogleTokenResponse.class));
+        // Create a new authorized API client.
+        Plus service = new Plus.Builder(TRANSPORT, JSON_FACTORY, credential)
+                        .setApplicationName(APPLICATION_NAME)
+                        .build();
+        user = service.people().get("me").execute().getId();
+        String page = "<html>\n<head>\n<title>Smart Home</title>\n<body><p>";
+        //Process pro = Runtime.getRuntime().exec("sudo python /home/ubuntu/Helios/java_wrapper.py " + user + "-s " + query);
+        page += query + user + "</p>\n</body>\n</html>";
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.getWriter().println(page.trim());
+      }
+    } catch (IOException e) {
+	response.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+	String page = "<html>\n<head>\n<title>Smart Home</title>\n<body><p>";
+	page += query + user + "</p>\n</body>\n</html>";
+	response.getWriter().println(page.trim());
+      }
     }
   }
 }
