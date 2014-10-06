@@ -29,7 +29,7 @@ os.chdir(directory)
 
 if args.decode:
 	cmd = "sudo java -Djava.library.path=\"/usr/local/share/OpenCV/java/\" -cp " + home\
-		+ "/opencv-2.4.9/build/bin/opencv-249.jar:.:./Barcode.jar:./javase-3.1.0.jar:./core-3.1.0.jar BarcodeBatchTester --matrix -dir /home/ubuntu/Users"\
+		+ "/opencv-2.4.9/build/bin/opencv-249.jar:.:./Barcode.jar:./javase-3.1.0.jar:./core-3.1.0.jar BarcodeBatchTester --matrix -dir ../Users"\
 		+ os.sep + args.user
 	arguments = shlex.split(cmd)
 	process = subprocess.Popen(arguments)
