@@ -28,9 +28,8 @@ directory = home + os.sep + "BarcodeLocalizer"
 os.chdir(directory)
 
 if args.decode:
-	cmd = "sudo java -Djava.library.path=\"/usr/local/share/OpenCV/java/\" -cp " + home\
-		+ "/opencv-2.4.9/build/bin/opencv-249.jar:.:./Barcode.jar:./javase-3.1.0.jar:./core-3.1.0.jar BarcodeBatchTester --matrix -dir ../Users"\
-		+ os.sep + args.user
+	cmd = "java -Djava.library.path=\"/usr/local/share/OpenCV/java/\" -cp " + home\
+		+ "/opencv-2.4.9/build/bin/opencv-249.jar:.:./Barcode.jar:./javase-3.1.0.jar:./core-3.1.0.jar BarcodeBatchTester --matrix -dir ../Users"+ os.sep + args.user + " >/dev/null 2>/dev/null"
 	arguments = shlex.split(cmd)
 	process = subprocess.Popen(arguments)
 	(output, stderr) = process.communicate()
