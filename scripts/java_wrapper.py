@@ -5,6 +5,9 @@ import sys
 import os
 from os.path import expanduser
 import shlex, subprocess
+import numpy as np
+import cv2
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("user", help="The user's google id")
@@ -43,8 +46,37 @@ if args.decode:
 if not args.search:
 	sys.exit(0)
 
-search_cmd = "grep \"" + args.search + "\" " + user_path + os.sep + "results.txt"
+search_cmd = "grep -A2 \"" + args.search + "\" " + user_path + os.sep + "results.txt"
+print search_cmd
 search_arguments = shlex.split(search_cmd)
-search_process = subprocess.Popen(search_arguments)
-(s_output, s_stderr) = search_process.communicate()
+#search_process = subprocess.Popen(search_arguments, stdout=subprocess.PIPE)
+#(s_output, s_stderr) = search_process.communicate()
+out = subprocess.check_output(search_arguments)
+print out
 
+bla = out.strip()
+image = ""
+create = True
+for line in bla.split("\n"):
+	if create:
+		first = line.split(" ")
+		image = first[0]
+		create = False
+		continue
+	img = cv2.imread(user_path + os.sep + image ,1)
+#	cv2.imshow('image',img)
+#	cv2.waitKey(0)
+#	cv2.destroyAllWindows()
+	coordinates = line.split(" ")
+	top_left = coordinates[4]
+	top_left = top_left.strip('(),')
+	top_coordinates = top_left.split(",")
+	bottom_right = coordinates[6]
+	bottom_right = bottom_right.strip('(),')
+	bottom_coordinates = bottom_right.split(",")
+	img2 = cv2.rectangle(img,(int(float(top_coordinates[0])),int(float(top_coordinates[1]))),\
+				(int(float(bottom_coordinates[0])),int(float(bottom_coordinates[1]))),(0,255,0),3)
+	print int(float(top_coordinates[0])), int(float(top_coordinates[1])), int(float(bottom_coordinates[0])),int(float(bottom_coordinates[1]))
+	cv2.imwrite(user_path + os.sep + args.search + "_" + image,img)
+	create = True
+	print image + " " + top_left + " " + bottom_right
