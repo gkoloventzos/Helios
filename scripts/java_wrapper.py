@@ -58,6 +58,8 @@ bla = out.strip()
 image = ""
 create = True
 for line in bla.split("\n"):
+	if line.startswith('--') or not line:
+		continue
 	if create:
 		first = line.split(" ")
 		image = first[0]
@@ -76,7 +78,9 @@ for line in bla.split("\n"):
 	bottom_coordinates = bottom_right.split(",")
 	img2 = cv2.rectangle(img,(int(float(top_coordinates[0])),int(float(top_coordinates[1]))),\
 				(int(float(bottom_coordinates[0])),int(float(bottom_coordinates[1]))),(0,255,0),3)
-	print int(float(top_coordinates[0])), int(float(top_coordinates[1])), int(float(bottom_coordinates[0])),int(float(bottom_coordinates[1]))
-	cv2.imwrite(user_path + os.sep + args.search + "_" + image,img)
+	#print int(float(top_coordinates[0])), int(float(top_coordinates[1])), int(float(bottom_coordinates[0])),int(float(bottom_coordinates[1]))
+	#path = user_path + os.sep + args.search + "_" + image
+	path = "/tmp/" + args.search + "_" + image
+	cv2.imwrite(path,img)
 	create = True
-	print image + " " + top_left + " " + bottom_right
+#	print image + " " + top_left + " " + bottom_right
