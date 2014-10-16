@@ -28,6 +28,10 @@ if not os.path.isdir(success):
 
 directory = home + os.sep + "BarcodeLocalizer"
 
+result = user_path + os.sep + "results.txt"
+if not os.path.isfile(result):
+	args.decode = True
+
 os.chdir(directory)
 
 if args.decode:
@@ -41,13 +45,13 @@ if args.decode:
 		print "running"
 	else:
 		print "not running"
-		sys.exit(0)
+		sys.exit(1)
 
 if not args.search:
 	sys.exit(0)
 
-search_cmd = "grep -A2 \"" + args.search + "\" " + user_path + os.sep + "results.txt"
-print search_cmd
+search_cmd = "grep -A2 \"" + args.search + "\" " + result
+#print search_cmd
 search_arguments = shlex.split(search_cmd)
 #search_process = subprocess.Popen(search_arguments, stdout=subprocess.PIPE)
 #(s_output, s_stderr) = search_process.communicate()
