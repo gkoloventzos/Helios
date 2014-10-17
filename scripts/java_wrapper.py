@@ -36,7 +36,7 @@ os.chdir(directory)
 
 if args.decode:
 	cmd = "java -Djava.library.path=\"/usr/local/share/OpenCV/java/\" -cp " + home\
-		+ "/opencv-2.4.9/build/bin/opencv-249.jar:.:./Barcode.jar:./javase-3.1.0.jar:./core-3.1.0.jar BarcodeBatchTester --matrix -dir ../Users"+ os.sep + args.user + " >/dev/null 2>/dev/null"
+		+ "/opencv-2.4.9/build/bin/opencv-249.jar:.:./Barcode.jar:./javase-3.1.0.jar:./core-3.1.0.jar BarcodeBatchTester --matrix -dir ../Users"+ os.sep + args.user + " "
 	arguments = shlex.split(cmd)
 	process = subprocess.Popen(arguments)
 	(output, stderr) = process.communicate()
@@ -55,7 +55,7 @@ search_cmd = "grep -A2 \"" + args.search + "\" " + result
 search_arguments = shlex.split(search_cmd)
 #search_process = subprocess.Popen(search_arguments, stdout=subprocess.PIPE)
 #(s_output, s_stderr) = search_process.communicate()
-out = subprocess.check_output(search_arguments)
+out = subprocess.check_output(search_arguments, stderr=subprocess.STDOUT)
 print out
 
 bla = out.strip()

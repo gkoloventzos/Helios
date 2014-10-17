@@ -86,9 +86,11 @@ var helper = (function() {
      */
     onSignInCallback: function(authResult) {
       $('#authResult').html('Auth Result:<br/>');
+	// $('#authResult').append(authResult + '<br/>');
       for (var field in authResult) {
         $('#authResult').append(' ' + field + ': ' + authResult[field] + '<br/>');
       }
+      //$('#authResult').append(' refresh: '+ authResult['refresh_token'] + '<br/>');
       if (authResult['access_token']) {
         // The user is signed in
         this.authResult = authResult;
